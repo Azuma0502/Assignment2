@@ -1,0 +1,18 @@
+<!--フラッシュメッセージを状況に応じて表示させる-->
+<div class="show-box">
+  <% if flash[:notice] %>
+    <%= content_tag :div, flash[:notice], class: "notice"%>
+    <% flash.delete(:notice) %>
+  <% end %>
+  
+<!--レコードの表示-->
+<p class="show-title">Title: <span class="show-text"><%= @book.title %></span></p>
+<p class="show-body">Body: <span class="show-text"><%= @book.body %></span></p>
+</div>
+
+<!--各ページへのリンク-->
+<div class="show-links">
+  <%= link_to "Edit", edit_book_path(@book.id)%>
+  <span class="show-links-line">|</span>
+  <%= link_to "Back", books_path %>
+</div>
